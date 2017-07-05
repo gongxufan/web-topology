@@ -1,0 +1,42 @@
+.tableBar{
+    margin:1px;
+    border:1px #D4D4D4 solid;
+}
+.tableBar .table thead th{
+    background:url(../images/tableTh.png) repeat-x;
+    font-size:12px;
+    padding:0 8px;
+    height:25px;
+    line-height:25px;
+    border-bottom:1px #D4D4D4 solid;
+    border-left:1px #FFF solid;
+    border-right:1px #E2E7EA solid;
+}
+.tableBar .table tbody td{
+    padding:3px 8px;
+    border-top:none;
+    border-bottom:1px #F2F2F2 solid;
+    font-size:12px;
+    line-height:24px;
+    font-size: 11px;
+}
+a.operation{
+    font-size: 11px;
+}
+input[type="text"]{
+    font-size: 11px;
+    height:15px;
+    line-height: 15px;
+    margin-bottom:0px;
+}
+select {
+    height: 25px;
+    line-height: 25px;
+    margin-bottom:0px;
+}
+.attrTableBar{
+    margin:10px;}
+.attrTable td{
+    padding:2px 5px;
+    font-size: 11px;
+}

@@ -1,0 +1,777 @@
+﻿@charset "utf-8";
+/* CSS Document */
+* {
+	margin: 0;
+	padding: 0;
+}
+
+.module {
+	position: absolute;
+	cursor: pointer;
+	border: 1px dashed #0F0;
+	visibility: hidden;
+	z-index: 1;
+}
+
+.title {
+	position: absolute;
+	top: 100%;
+	height: 0px;
+	font-size: 12px;
+	width: 100%;
+	text-align: center;
+	visibility: visible;
+	z-index: 1;
+}
+
+.content {
+	visibility: visible;
+	z-index: 1;
+	display: table-cell;
+	vertical-align: middle;
+}
+
+.content img {
+	vertical-align: middle;
+}
+
+/*缩放控制点*/
+.top_left {
+	font-size: 0px;
+	width: 5px !important;
+	height: 5px !important;
+	width: 7px;
+	height: 7px;
+	border: 1px solid #000;
+	background-color: #00F;
+	position: absolute;
+	z-index: 1;
+	background-color: #0F0;
+	cursor: nw-resize;
+	z-index: 1;
+}
+
+.top_middle {
+	font-size: 0px;
+	width: 5px !important;
+	height: 5px !important;
+	width: 7px;
+	height: 7px;
+	border: 1px solid #000;
+	background-color: #00F;
+	position: absolute;
+	z-index: 1;
+	background-color: #0F0;
+	cursor: n-resize;
+	z-index: 1;
+}
+
+.top_right {
+	font-size: 0px;
+	width: 5px !important;
+	height: 5px !important;
+	width: 7px;
+	height: 7px;
+	border: 1px solid #000;
+	background-color: #00F;
+	position: absolute;
+	z-index: 1;
+	background-color: #0F0;
+	cursor: ne-resize;
+	z-index: 1;
+}
+
+.middle_left {
+	font-size: 0px;
+	width: 5px !important;
+	height: 5px !important;
+	width: 7px;
+	height: 7px;
+	border: 1px solid #000;
+	background-color: #00F;
+	position: absolute;
+	z-index: 1;
+	background-color: #0F0;
+	cursor: w-resize;
+	z-index: 1;
+}
+
+.middle_right {
+	font-size: 0px;
+	width: 5px !important;
+	height: 5px !important;
+	width: 7px;
+	height: 7px;
+	border: 1px solid #000;
+	background-color: #00F;
+	position: absolute;
+	z-index: 1;
+	background-color: #0F0;
+	cursor: w-resize;
+	z-index: 1;
+}
+
+.bottom_left {
+	font-size: 0px;
+	width: 5px !important;
+	height: 5px !important;
+	width: 7px;
+	height: 7px;
+	border: 1px solid #000;
+	background-color: #00F;
+	position: absolute;
+	z-index: 1;
+	background-color: #0F0;
+	cursor: sw-resize;
+	z-index: 1;
+}
+
+.bottom_middle {
+	font-size: 0px;
+	width: 5px !important;
+	height: 5px !important;
+	width: 7px;
+	height: 7px;
+	border: 1px solid #000;
+	background-color: #00F;
+	position: absolute;
+	z-index: 1;
+	background-color: #0F0;
+	cursor: s-resize;
+	z-index: 1;
+}
+
+.bottom_right {
+	font-size: 0px;
+	width: 5px !important;
+	height: 5px !important;
+	width: 7px;
+	height: 7px;
+	border: 1px solid #000;
+	background-color: #00F;
+	position: absolute;
+	z-index: 1;
+	background-color: #0F0;
+	cursor: nw-resize;
+	z-index: 1;
+}
+
+.scaling {
+	font-size: 0px;
+	width: 5px !important;
+	height: 5px !important;
+	width: 7px;
+	height: 7px;
+	border: 1px solid #000;
+	background-color: #00F;
+	position: absolute;
+	z-index: 1;
+	background-color: #0F0;
+	cursor: nw-resize;
+	z-index: 1;
+}
+
+.hidden {
+	width: 400px;
+	height: 400px;
+	background-color: #030;
+	z-index: 1;
+}
+
+.container {
+	overflow: hidden;
+	text-align: left;
+}
+
+.viewarea {
+	width: 100%;
+	height: 100%;
+	text-align: left;
+	margin: 0 auto;
+	cursor: move;
+}
+
+.buttonStyle {
+	cursor: pointer;
+	margin-top: 5px;
+	margin-left: 5px;
+}
+
+.nodeStyle {
+	cursor: pointer;
+	width: 30px;
+	height: 30px;
+}
+
+.modeRight {
+	position: absolute;
+	width: 150px;
+	visibility: hidden;
+	background-color: #FFFFFF;
+	border: 1px solid #b7c8f6;
+}
+.modeRight3 {
+	position: absolute;
+	width: 30px;
+	visibility: hidden;
+	background-color: #FFFFFF;
+	border: 1px solid #b7c8f6;
+}
+
+.modeRight2 {
+    position: absolute;
+    width: 150px;
+    display: none;
+    background-color: #FFFFFF;
+    border: 1px solid #b7c8f6;
+}
+
+
+.zoomBig {
+	height: 30px;
+	line-height: 30px;
+	text-align: left;
+	border-bottom: 1px dotted #cccccc;
+	background: url(../images/topology/zoomBig.png) left no-repeat;
+}
+.zoomSmall {
+	height: 30px;
+	line-height: 30px;
+	text-align: left;
+	border-bottom: 1px dotted #cccccc;
+	background: url(../images/topology/zoomSmall.png) left no-repeat;
+}
+.modeRightCut {
+	height: 30px;
+	line-height: 30px;
+	text-align: left;
+	border-bottom: 1px dotted #cccccc;
+	background: url(../images/cut.png) left no-repeat;
+}
+
+.modeRightCopy {
+	height: 30px;
+	line-height: 30px;
+	text-align: left;
+	border-bottom: 1px dotted #cccccc;
+	background: url(../images/topology/copy.fw.png) 3px no-repeat;
+}
+
+.modeRightDel {
+	height: 30px;
+	line-height: 30px;
+	text-align: left;
+	background: url(../images/topology/split.fw.png) 3px no-repeat;
+}
+
+.modeRightPro {
+	height: 30px;
+	line-height: 30px;
+	text-align: left;
+	background: url(../images/prop.png) 3px no-repeat;
+}
+
+.modeRightTop {
+	height: 6px;
+	font-size: 0px;
+}
+
+.modeRightButtom {
+	height: 6px;
+	font-size: 0px;
+}
+
+/* .modeRightPixel{height:24px;line-height:24px; text-align:left; border-bottom:1px dotted #cccccc; background:url(../images/modeRightCopy.gif) 3px no-repeat;}
+ */
+ .applicationLayout {
+    height: 24px;
+    line-height: 24px;
+    text-align: left;
+    border-bottom: 1px dotted #cccccc;
+    background: url(../images/topology/applicationLayout.png) 3px no-repeat;
+}
+ 
+.cancelTheLayout {
+    height: 24px;
+    line-height: 24px;
+    text-align: left;
+    border-bottom: 1px dotted #cccccc;
+    background: url(../images/topology/cancelTheLayout.png) 3px no-repeat;
+}
+
+.packetLayout {
+    height: 24px;
+    line-height: 24px;
+    text-align: left;
+    border-bottom: 1px dotted #cccccc;
+    background: url(../images/topology/packetLayout.png) 3px no-repeat;
+}
+
+.theTreeLayout {
+    height: 24px;
+    line-height: 24px;
+    text-align: left;
+    border-bottom: 1px dotted #cccccc;
+    background: url(../images/topology/theTreeLayout.png) 3px no-repeat;
+}
+
+.circularLayout {
+    height: 24px;
+    line-height: 24px;
+    text-align: left;
+    border-bottom: 1px dotted #cccccc;
+    background: url(../images/topology/circularLayout.png) 3px no-repeat;
+}
+ 
+.modeRightLeft {
+	height: 24px;
+	line-height: 24px;
+	text-align: left;
+	border-bottom: 1px dotted #cccccc;
+	background: url(../images/toLeft.png) 3px no-repeat;
+}
+
+.modeRightCenter {
+	height: 24px;
+	line-height: 24px;
+	text-align: left;
+	border-bottom: 1px dotted #cccccc;
+	background: url(../images/topology/toMiddleWidth.fw.png) 3px no-repeat;
+}
+
+.modeRightRight {
+	height: 24px;
+	line-height: 24px;
+	text-align: left;
+	border-bottom: 1px dotted #cccccc;
+	background: url(../images/toRight.png) 3px no-repeat;
+}
+
+.modeRightHead {
+	height: 24px;
+	line-height: 24px;
+	text-align: left;
+	border-bottom: 1px dotted #cccccc;
+	background: url(../images/toTop.png) 3px no-repeat;
+}
+.modeRightCancel {
+	height: 24px;
+	line-height: 24px;
+	text-align: left;
+	border-bottom: 1px dotted #cccccc;
+	background: url(../images/topology/back.fw.png) 3px no-repeat;
+}
+.modeRightRedo {
+	height: 24px;
+	line-height: 24px;
+	text-align: left;
+	border-bottom: 1px dotted #cccccc;
+	background: url(../images/topology/next.fw.png) 3px no-repeat;
+}
+.modeRightNiShi {
+	height: 24px;
+	line-height: 24px;
+	text-align: left;
+	border-bottom: 1px dotted #cccccc;
+	background: url(../images/topology/counterclockwiseRotation.png) 3px no-repeat;
+}
+.modeRightShunShi {
+	height: 24px;
+	line-height: 24px;
+	text-align: left;
+	border-bottom: 1px dotted #cccccc;
+	background: url(../images/topology/clockwiseRotation.png) 3px no-repeat;
+}
+.modeRightEdit {
+	height: 24px;
+	line-height: 24px;
+	text-align: left;
+	border-bottom: 1px dotted #cccccc;
+	background: url(../images/topology/edit.png) 3px no-repeat;
+}
+
+.nodeRightEdit {
+    height: 24px;
+    line-height: 24px;
+    text-align: left;
+    border-bottom: 1px dotted #cccccc;
+    background: url(../images/topology/changePosition.png) 3px no-repeat;
+}
+
+.nodeText {
+    height: 24px;
+    line-height: 24px;
+    text-align: left;
+    border-bottom: 1px dotted #cccccc;
+    background: url(../images/topology/nodeText.png) 3px no-repeat;
+}
+
+.theTopLeft {
+    height: 24px;
+    line-height: 24px;
+    text-align: left;
+    border-bottom: 1px dotted #cccccc;
+    background: url(../images/topology/theTopLeft.png) 3px no-repeat;
+}
+
+.theTopCenter {
+    height: 24px;
+    line-height: 24px;
+    text-align: left;
+    border-bottom: 1px dotted #cccccc;
+    background: url(../images/topology/theTopCenter.png) 3px no-repeat;
+}
+
+.theTopRight {
+    height: 24px;
+    line-height: 24px;
+    text-align: left;
+    border-bottom: 1px dotted #cccccc;
+    background: url(../images/topology/theTopRight.png) 3px no-repeat;
+}
+
+.theMiddleLeft {
+    height: 24px;
+    line-height: 24px;
+    text-align: left;
+    border-bottom: 1px dotted #cccccc;
+    background: url(../images/topology/theMiddleLeft.png) 3px no-repeat;
+}
+
+.center {
+    height: 24px;
+    line-height: 24px;
+    text-align: left;
+    border-bottom: 1px dotted #cccccc;
+    background: url(../images/topology/center.png) 3px no-repeat;
+}
+
+.theMiddleRight {
+    height: 24px;
+    line-height: 24px;
+    text-align: left;
+    border-bottom: 1px dotted #cccccc;
+    background: url(../images/topology/theMiddleRight.png) 3px no-repeat;
+}
+
+.theBottomLeft {
+    height: 24px;
+    line-height: 24px;
+    text-align: left;
+    border-bottom: 1px dotted #cccccc;
+    background: url(../images/topology/theBottomLeft.png) 3px no-repeat;
+}
+
+.theBottomCenter {
+    height: 24px;
+    line-height: 24px;
+    text-align: left;
+    border-bottom: 1px dotted #cccccc;
+    background: url(../images/topology/theBottomCenter.png) 3px no-repeat;
+}
+
+.theBottomRight {
+    height: 24px;
+    line-height: 24px;
+    text-align: left;
+    border-bottom: 1px dotted #cccccc;
+    background: url(../images/topology/theBottomRight.png) 3px no-repeat;
+}
+
+.modeRightMiddle {
+	height: 24px;
+	line-height: 24px;
+	text-align: left;
+	border-bottom: 1px dotted #cccccc;
+	background: url(../images/toMiddleHeight.png) 3px no-repeat;
+}
+.modeTopMiddle {
+	height: 24px;
+	line-height: 24px;
+	text-align: left;
+	border-bottom: 1px dotted #cccccc;
+	background: url(../images/toTop.png) 3px no-repeat;
+}
+.modeRightDelete {
+	height: 24px;
+	line-height: 24px;
+	text-align: left;
+	border-bottom: 1px dotted #cccccc;
+	background: url(../images/topology/delete.fw.png) 3px no-repeat;
+}
+.modeRightClear {
+	height: 24px;
+	line-height: 24px;
+	text-align: left;
+	border-bottom: 1px dotted #cccccc;
+	background: url(../images/topology/trash.fw.png) 3px no-repeat;
+}
+.modeRightPrint {
+	height: 24px;
+	line-height: 24px;
+	text-align: left;
+	border-bottom: 1px dotted #cccccc;
+	background: url(../images/topology/preview.fw.png) 3px no-repeat;
+}
+.modeRightFullScreen {
+	height: 24px;
+	line-height: 24px;
+	text-align: left;
+	border-bottom: 1px dotted #cccccc;
+	background: url(../images/topology/fullScreenView.png) 3px no-repeat;
+}
+
+.modeRightSave {
+	height: 24px;
+	line-height: 24px;
+	text-align: left;
+	border-bottom: 1px dotted #cccccc;
+	background: url(../images/topology/save.fw.png) 3px no-repeat;
+}
+.modeRightSetRule {
+	height: 24px;
+	line-height: 24px;
+	text-align: left;
+	border-bottom: 1px dotted #cccccc;
+    background: url(../images/topology/hide_display.png) 3px no-repeat;
+}
+.modeRightSettings {
+	height: 24px;
+	line-height: 24px;
+	text-align: left;
+	border-bottom: 1px dotted #cccccc;
+}
+
+.viewHelp {
+    height: 24px;
+    line-height: 24px;
+    text-align: left;
+    border-bottom: 1px dotted #cccccc;
+    background: url(../images/topology/viewHelp.png) 3px no-repeat;
+}
+
+.modeRightFoot {
+	height: 24px;
+	line-height: 24px;
+	text-align: left;
+	background: url(../images/toBottom.png) 3px no-repeat;
+}
+
+.auxiliaryArea {
+	height: 142px;
+	position: relative;
+	background-color: #FFFFFF
+}
+
+#smallMap {
+	position: absolute;
+	width: 100px;
+	height: 60px;
+	overflow: auto;
+	border: 1px #99bbe8 solid;
+	background-color: #ffffff;
+	float: left;
+	position:fixed;
+	margin-right: 5px;
+	margin-top: 3px;
+}
+
+#mainControl {
+	/*position:absolute;width:100%;height:100%; overflow:hidden; border:1px #99bbe8 solid;background-color:#c7dbfc;float:left; margin-right:5px; margin-top:3px;*/
+	
+}
+
+.show {
+	width: 200px;
+	height: 100px;
+	overflow: auto;
+	border: 1px #99bbe8 solid;
+	background-color: #ffffff;
+	float: right;
+	margin-top: 3px;
+}
+
+.showItem {
+	position: relative;
+	text-align: center;
+	border-bottom: 1px dotted #cccccc;
+	width: 100%;
+	height: 20px;
+}
+
+.message {
+	position: absolute;
+	top: 0px;
+	left: 60px;
+}
+
+.inputComm {
+	width: 100%;
+	height: 18px;
+	border: 1px solid #ccc;
+}
+
+.contextArea {
+	border: 1px solid #ccc;
+	height: 60px;
+	width: 80px;
+}
+
+.inputClick {
+	width: 80%;
+	height: 18px;
+	border: 2px solid #6e95c0;
+}
+
+#topCross {
+	visibility: hidden;
+	width: 100%;
+	height: 1px;
+	font-size: 0px;
+	border-top: 1px dashed #ff0000;
+	position: absolute;
+}
+
+#leftCross {
+	visibility: hidden;
+	width: 1px;
+	height: 100%;
+	font-size: 0px;
+	border-left: 1px dashed #ff0000;
+	position: absolute;
+	left: 100px;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	font-size: 12px;
+	font-weight: normal;
+}
+
+.control {
+	position: relative;
+	width: 100%;
+}
+
+.hclass {
+	position: relative;
+	width: 65px;
+	z-index: 1;
+	top: 2px;
+	height: 25px;
+	line-height: 22px;
+	margin-bottom: 1px;
+	border: solid #ccc;
+	border-width: 1px 0 1px 1px;
+	text-align: left;
+	font-family: "宋体";
+	background-image: url("../images/bg.gif");
+	cursor: pointer;
+	float: left;
+}
+
+.hclassup {
+	position: relative;
+	width: 150px;
+	z-index: 1;
+	top: 2px !important;
+	top: 5px;
+	height: 18px !important;
+	height: 22px;
+	padding-top: 4px;
+	margin-bottom: -1px;
+	border: solid #ccc;
+	border-width: 1px 0 1px 1px;
+	text-align: center;
+	font-family: "宋体";
+	z-index: 3;
+	color: #c00;
+	background: #e0ecff;
+}
+
+.htab {
+	display: none;
+	position: absolute;
+	left: 119px;
+	top: 0;
+	z-index: 2;
+	width: 100%;
+	padding: 5px;
+	border: solid 1px #ccc;
+	color: #666;
+}
+
+.htabup {
+	display: block;
+	position: absolute;
+	left: 0px;
+	top: 22px;
+	z-index: 2;
+	width: 100%;
+	padding: 5px;
+	border: solid 1px #ccc;
+	color: #666;
+	background-color: #e0ecff;
+}
+
+.titleTool {
+	height: 64px;
+	background-color: #FFFFFF;
+}
+
+.bodySelectNone {
+	-moz-user-select: none;
+}
+
+.leftContent {
+	width: 150px;
+	position: relative;
+	background-color: #d8e4fe;
+	overflow: hidden;
+}
+
+.overflowHidden {
+	overflow: hidden;
+}
+
+.overflowHidden2 {
+	overflow: hidden;
+}
+
+.flowImag {
+	overflow: hidden;
+	background-color: #c7dbfc;
+}
+
+.mapContext {
+	overflow: auto;
+	position: relative;
+	background: #fff url(../images/backimg.png);
+}
+
+.history {
+	width: 280px;
+	position: relative
+}
+
+.historyMessage {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+}
+
+#smallMap {
+	overflow: hidden;
+}
+
+.menuSpan {
+	margin-left: 28px;
+}
+
+.moveBaseMode {
+	position: absolute;
+	visibility: hidden;
+	filter: alpha(opacity = 30);
+	opacity: 0.3;
+}

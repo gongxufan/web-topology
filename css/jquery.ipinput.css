@@ -1,0 +1,49 @@
+    .ipinput_input {  
+        border-color : #b99d7f;  
+        border-style : solid;  
+        border-width : 0px;  
+        background-color : #ffffff;  
+        margin-right : -5px;  
+        margin-left : 0px;  
+        margin-top : 0px;  
+        margin-bottom : 0px;  
+        width : 16%;  
+        height : 90%;  
+    }  
+      
+    .ipinput_separator {  
+        margin-right : 2px;  
+        margin-left : 2px;  
+        font-weight : bolder;  
+        font-size : 14px;  
+    }  
+      
+    .ipinput_div {  
+        border-color : #86A3C4;  
+        border-style : solid;  
+        border-width : 1px;  
+    }  
+    
+    
+    .ipinput_div input[type="text"] {
+	  background-color: #ffffff;
+	  border: none;
+	  -webkit-box-shadow: none;
+	     -moz-box-shadow: none;
+	          box-shadow: none;
+	  -webkit-transition: none;
+	     -moz-transition: none;
+	       -o-transition: none;
+	          transition: none;
+	}
+	
+	.ipinput_div input[type="text"]:focus{
+	  border-color: none;
+	  outline: 0;
+	  outline: thin dotted \9;
+	  /* IE6-9 */
+	
+	  -webkit-box-shadow: none;
+	     -moz-box-shadow: none;
+	          box-shadow: none;
+	}
