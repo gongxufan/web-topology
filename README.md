@@ -3,6 +3,7 @@
 # update 
 增加直线拐点功能,实现思路很简单，在中间增加一个控制点即可，如需要跟多的拐点可以分段增加。
 ```
+js/editor.js
  //鼠标悬浮
     var midList = [];
     this.scene.mouseover(function (e) {
