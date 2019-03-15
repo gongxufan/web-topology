@@ -1092,7 +1092,7 @@ networkTopologyEditor.prototype.init = function (backImg,templateId,topologyId,s
     this.stage.wheelZoom = this.config.defaultScal;
     this.stage.eagleEye.visible = this.config.eagleEyeVsibleDefault;
 
-    this.scene.mode = "edit";
+    this.scene.mode = "normal";
     //背景由样式指定
     //this.scene.background = backImg;
 
@@ -1203,14 +1203,59 @@ networkTopologyEditor.prototype.init = function (backImg,templateId,topologyId,s
 
     //清除起始节点不完整的拖放线
     this.scene.mousedown(function(e){
-        if (self.link && !self.isSelectedMode && (e.target == null || e.target === self.beginNode || e.target === self.link)) {
+        if (self.link && !self.isSelectedMode  && (e.target == null || e.target === self.beginNode || e.target === self.link)) {
             this.remove(self.link);
         }
     });
 
+    //鼠标悬浮
+    var midList = [];
+    this.scene.mouseover(function (e) {
+        if(e.target && e.target.midNode){
+            e.target.midNode.visible = true;
+            return;
+        }
+        if(e.target && e.target instanceof JTopo.Link && !e.target.hasPaintMid && e.target.lineType == 'line'){
+            var nodeA = e.target.nodeA, nodeZ = e.target.nodeZ;
+            //移除当前连线
+            this.remove(e.target);
+            //重建连线
+            //中间小节点
+            var midNode = new JTopo.CircleNode('');
+            midNode.type = 'tag';
+            midNode.radius = 3;
+            midNode.fillColor = '255,0,0';
+            midNode.alpha = 0.7;
+            midNode.setLocation((nodeA.cx +nodeZ.cx)/2,(nodeA.cy +nodeZ.cy)/2);
+            this.add(midNode)
+            var m = new JTopo.Link(nodeA, midNode);
+            var n = new JTopo.Link(midNode, nodeZ);
+            m.lineType = "line";
+            m.strokeColor = self.config.strokeColor;
+            m.lineWidth = self.config.lineWidth;
+            n.lineType = "line";
+            n.strokeColor = self.config.strokeColor;
+            n.lineWidth = self.config.lineWidth;
+            this.add(m);
+            this.add(n);
+            m.hasPaintMid = true;
+            m.midNode = midNode;
+            n.hasPaintMid = true;
+            n.midNode = midNode;
+            midList.push(midNode);
+        }
+    });
+    this.scene.mouseout(function (e) {
+        if(e.target == null || (e.target != null && !e.target instanceof JTopo.Link))
+        for (var i = 0; i < midList.length; i++) {
+            midList[i].visible = false;
+        }
+    });
     //处理右键菜单，左键连线
     this.scene.mouseup(function(e){
-        if(e.target)
+        if(e.target && e.target.type == 'tag')
+            return false;
+        if(e.target )
             self.currentNode = e.target;
         if(e.target && e.target instanceof  JTopo.Node && e.target.layout && e.target.layout.on && e.target.layout.type && e.target.layout.type !="auto")
             JTopo.layout.layoutNode(this, e.target,true,e);
@@ -1408,6 +1453,7 @@ networkTopologyEditor.prototype.init = function (backImg,templateId,topologyId,s
                     l.lineWidth = self.config.lineWidth;
 
                     this.add(l);
+                    this.add(m);
                     self.beginNode = null;
                     this.remove(self.link);
                     self.link = null;
@@ -1424,12 +1470,12 @@ networkTopologyEditor.prototype.init = function (backImg,templateId,topologyId,s
 
     //动态更新连线坐标
     this.scene.mousemove(function(e){
-        if(!self.isSelectedMode && self.beginNode)
+        if(!self.isSelectedMode && self.beginNode )
             self.tempNodeZ.setLocation(e.x, e.y);
     });
 
     this.scene.mousedrag(function(e){
-        if(!self.isSelectedMode && self.beginNode)
+        if(!self.isSelectedMode && self.beginNode )
             self.tempNodeZ.setLocation(e.x, e.y);
     });
 
