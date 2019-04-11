@@ -1,5 +1,5 @@
 # web-topology
-基于jtopo实现的拓扑编辑器，把项目放tomcat才能访问。具体可参考:https://gongxufan.github.io/2016/12/07/topology-editor/
+基于jtopo实现的拓扑编辑器，把项目放tomcat才能访问。具体可参考:https://juejin.im/post/5b2b5d686fb9a00e8b252b59
 # update 
 增加直线拐点功能,实现思路很简单，在中间增加一个控制点即可，如需要更多的拐点可以分段增加。
 ```
