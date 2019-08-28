@@ -1210,7 +1210,7 @@ networkTopologyEditor.prototype.init = function (backImg,templateId,topologyId,s
 
     //鼠标悬浮
     var midList = [];
-    this.scene.mouseover(function (e) {
+    this.scene.click(function (e) {
         if(e.target && e.target.midNode){
             e.target.midNode.visible = true;
             return;
@@ -1226,7 +1226,7 @@ networkTopologyEditor.prototype.init = function (backImg,templateId,topologyId,s
             midNode.radius = 3;
             midNode.fillColor = '255,0,0';
             midNode.alpha = 0.7;
-            midNode.setLocation((nodeA.cx +nodeZ.cx)/2,(nodeA.cy +nodeZ.cy)/2);
+            midNode.setLocation(e.x,e.y);
             this.add(midNode)
             var m = new JTopo.Link(nodeA, midNode);
             var n = new JTopo.Link(midNode, nodeZ);
