@@ -1453,7 +1453,6 @@ networkTopologyEditor.prototype.init = function (backImg,templateId,topologyId,s
                     l.lineWidth = self.config.lineWidth;
 
                     this.add(l);
-                    this.add(m);
                     self.beginNode = null;
                     this.remove(self.link);
                     self.link = null;
