@@ -1211,7 +1211,7 @@ networkTopologyEditor.prototype.init = function (backImg,templateId,topologyId,s
     //鼠标悬浮
     var midList = [];
     this.scene.click(function (e) {
-        if(e.target && e.target.midNode){
+       /* if(e.target && e.target.midNode){
             e.target.midNode.visible = true;
             return;
         }
@@ -1243,7 +1243,7 @@ networkTopologyEditor.prototype.init = function (backImg,templateId,topologyId,s
             n.hasPaintMid = true;
             n.midNode = midNode;
             midList.push(midNode);
-        }
+        }*/
     });
     this.scene.mouseout(function (e) {
         if(e.target == null || (e.target != null && !e.target instanceof JTopo.Link))
